@@ -30,6 +30,7 @@
 
 - Maintain a transaction history for each user, including details such as transaction type (deposit/withdrawal), amount, date, and any relevant transaction ID.
 - Users should be able to retrieve their transaction history.
+- Users should be able to retrieve their transaction detail by transaction id.
 
 ### Balance Inquiry:
 
@@ -42,10 +43,11 @@
 ### Endpoints
 
 ``````
-[GET]  /:account-id/ 
-[POST] /:account-id/withdraw
-[POST] /:account-id/deposit
-[GET]  /:account-id/history
-[GET]  /:account-id/history/:transaction-id
+[GET]  account/:account-id/ 
+[POST] account/
+[POST] account/:account-id/withdraw
+[POST] account/:account-id/deposit
+[GET]  account/:account-id/history
+[GET]  account/:account-id/history/:transaction-id
 ``````
 
