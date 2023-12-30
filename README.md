@@ -51,3 +51,22 @@
 [GET]  account/:account-id/history/:transaction-id
 ``````
 
+### Tech Stack
+
+- Java Spring
+- PostgreSQL
+- HTTP Rest and gRPC endpoints
+- Redis 
+
+### Must have 
+
+- Integration tests
+- Unit Tests
+- Dockerfile
+- Docker compose file local environment
+- Swagger
+- Health endpoint
+- Monitoring endpoint
+- Logging
+- JWT Authorization and Authentication
+- Other microservice integration (like notification, auth service etc. as a mock just log the request actually send it)
