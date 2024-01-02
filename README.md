@@ -49,13 +49,14 @@
 ### Endpoints
 
 ``````
-[GET]  users/:user-id/                                                 //returns all the account user has
-[GET]  users/:user-id/account/:account-id/                             //returns specific account
-[POST] users/:user-id/accounts/                                        //creates new acount
-[POST] users/:user-id/accounts/:account-id/withdraw                    //creates a withdraw request
-[POST] users/:user-id/accounts/:account-id/deposit                     //creates a deposit request
-[GET]  users/:user-id/accounts/:account-id/history                     //returns account history
-[GET]  users/:user-id/accounts/:account-id/history/:transaction-id     //returns specific account transaction
+[GET]  accounts/                                        //returns all the account user has
+[GET]  accounts/:account-id/                            //returns specific account
+[POST] accounts/                                        //creates new acount
+[POST] accounts/:account-id/withdraw                    //creates a withdraw request
+[POST] accounts/:account-id/deposit                     //creates a deposit request
+[GET]  accounts/:account-id/history                     //returns account history
+[GET]  accounts/:account-id/history/:transaction-id     //returns specific account transaction
+[POST] accounts/:account-id/exchange                    //creates a exechange request
 ``````
 
 ### Tech Stack
