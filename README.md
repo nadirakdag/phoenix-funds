@@ -2,7 +2,7 @@
 
 > Where your finances rise from the ashes, just like a phoenix.
 
-## Business Requirements
+## Business Functionalities
 
 ### Account Initialization:
 
@@ -38,13 +38,13 @@
 - Ensure that the balance returned is accurate and reflects the latest transactions.
 - Include a timestamp in balance inquiry responses to indicate the last update time.
 
-### Exchange Functionality:
+### [DRAFT] Exchange Functionality:
 
 - User should be able to exchange currencies between accounts
 - In each exchange there should be a withdrawal, deposit and exchange records
 - When user exchange currencies if there is a applicable tax then there should be a separate withdraw record
 
-## Technical Requirements 
+## Technical Side 
 
 ### Endpoints
 
@@ -56,7 +56,6 @@
 [POST] accounts/:account-id/deposit                     //creates a deposit request
 [GET]  accounts/:account-id/history                     //returns account history
 [GET]  accounts/:account-id/history/:transaction-id     //returns specific account transaction
-[POST] accounts/:account-id/exchange                    //creates a exechange request
 ``````
 
 ### Tech Stack
