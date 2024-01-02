@@ -8,7 +8,7 @@
 
 - When a user registers, their account should be initialized with an initial balance, which can be set to zero or a predefined amount.
 - Implement a notification service to inform user, the account initialized
-- Account could be any type of currency including crypto
+- Account could be any type of currency
 
 ### Deposit Functionality:
 
@@ -38,17 +38,24 @@
 - Ensure that the balance returned is accurate and reflects the latest transactions.
 - Include a timestamp in balance inquiry responses to indicate the last update time.
 
+### Exchange Functionality:
+
+- User should be able to exchange currencies between accounts
+- In each exchange there should be a withdrawal, deposit and exchange records
+- When user exchange currencies if there is a applicable tax then there should be a separate withdraw record
+
 ## Technical Requirements 
 
 ### Endpoints
 
 ``````
-[GET]  account/:account-id/ 
-[POST] account/
-[POST] account/:account-id/withdraw
-[POST] account/:account-id/deposit
-[GET]  account/:account-id/history
-[GET]  account/:account-id/history/:transaction-id
+[GET]  users/:user-id/                                                 //returns all the account user has
+[GET]  users/:user-id/account/:account-id/                             //returns specific account
+[POST] users/:user-id/accounts/                                        //creates new acount
+[POST] users/:user-id/accounts/:account-id/withdraw                    //creates a withdraw request
+[POST] users/:user-id/accounts/:account-id/deposit                     //creates a deposit request
+[GET]  users/:user-id/accounts/:account-id/history                     //returns account history
+[GET]  users/:user-id/accounts/:account-id/history/:transaction-id     //returns specific account transaction
 ``````
 
 ### Tech Stack
