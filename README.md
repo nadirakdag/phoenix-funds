@@ -44,6 +44,14 @@
 - In each exchange there should be a withdrawal, deposit and exchange records
 - When user exchange currencies if there is a applicable tax then there should be a separate withdraw record
 
+## Security Aspect
+
+### Cases
+
+- Sending to much account create request with same data in order to break down database
+- Trying to withdraw money than is in the account
+- Sending same deposit request in order to increase my account balance
+
 ## Technical Side 
 
 ### Endpoints
@@ -71,9 +79,4 @@
 - Unit Tests
 - Dockerfile
 - Docker compose file local environment
-- Swagger
-- Health endpoint
-- Monitoring endpoint
-- Logging
-- JWT Authorization and Authentication
 - Other microservice integration (like notification, auth service etc. as a mock just log the request actually send it)
