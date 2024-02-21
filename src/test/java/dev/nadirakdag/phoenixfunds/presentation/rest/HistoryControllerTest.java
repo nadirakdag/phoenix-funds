@@ -1,5 +1,7 @@
 package dev.nadirakdag.phoenixfunds.presentation.rest;
 
+import dev.nadirakdag.phoenixfunds.presentation.rest.response.TransactionResponse;
+import dev.nadirakdag.phoenixfunds.presentation.rest.response.TransactionsResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +16,7 @@ class HistoryControllerTest extends BaseIntegrationTest{
     void getAllHistoryTest() {
 
         //when
-        ResponseEntity<?> response = restTemplate.getForEntity(createURLWithPort("/v1/accounts/" + UUID.randomUUID() + "/history"), ResponseEntity.class);
+        ResponseEntity<TransactionsResponse> response = restTemplate.getForEntity(createURLWithPort("/v1/accounts/" + UUID.randomUUID() + "/history"), TransactionsResponse.class);
 
         //assert
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -24,7 +26,7 @@ class HistoryControllerTest extends BaseIntegrationTest{
     void getHistoryTest() {
 
         //when
-        ResponseEntity<?> response = restTemplate.getForEntity(createURLWithPort("/v1/accounts/" + UUID.randomUUID() + "/history/" + UUID.randomUUID() ), ResponseEntity.class);
+        ResponseEntity<TransactionResponse> response = restTemplate.getForEntity(createURLWithPort("/v1/accounts/" + UUID.randomUUID() + "/history/" + UUID.randomUUID() ), TransactionResponse.class);
 
         //assert
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

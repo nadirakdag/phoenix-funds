@@ -1,5 +1,7 @@
 package dev.nadirakdag.phoenixfunds.presentation.rest;
 
+import dev.nadirakdag.phoenixfunds.presentation.rest.request.WithdrawRequest;
+import dev.nadirakdag.phoenixfunds.presentation.rest.response.TransactionResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -14,14 +16,14 @@ import static org.assertj.core.api.Assertions.assertThat;
     @Test
     void createWithdrawTest() {
 
-        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+        HttpEntity<WithdrawRequest> entity = new HttpEntity<>(new WithdrawRequest(UUID.randomUUID().toString(), 100.00), headers);
 
         //when
-        ResponseEntity<?> response = restTemplate.exchange(
+        ResponseEntity<TransactionResponse> response = restTemplate.exchange(
                 createURLWithPort("/v1/accounts/"+ UUID.randomUUID() + "/withdraw"),
                 HttpMethod.POST,
                 entity,
-                String.class);
+                TransactionResponse.class);
 
         //assert
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);

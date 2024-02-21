@@ -1,5 +1,6 @@
 package dev.nadirakdag.phoenixfunds.presentation.rest;
 
+import dev.nadirakdag.phoenixfunds.presentation.rest.response.AccountResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -17,7 +18,7 @@ class AccountControllerTests extends BaseIntegrationTest {
     void getAccountTest() {
 
         //when
-        ResponseEntity<?> response = restTemplate.getForEntity(createURLWithPort("/v1/accounts/" + UUID.randomUUID()), ResponseEntity.class);
+        ResponseEntity<AccountResponse> response = restTemplate.getForEntity(createURLWithPort("/v1/accounts/" + UUID.randomUUID()), AccountResponse.class);
 
         //assert
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -31,11 +32,11 @@ class AccountControllerTests extends BaseIntegrationTest {
 
 
         //when
-        ResponseEntity<?> response = restTemplate.exchange(
+        ResponseEntity<AccountResponse> response = restTemplate.exchange(
                 createURLWithPort("/v1/accounts"),
                 HttpMethod.POST,
                 entity,
-                String.class);
+                AccountResponse.class);
 
         //assert
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
