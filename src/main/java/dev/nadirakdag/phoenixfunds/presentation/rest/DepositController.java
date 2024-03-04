@@ -1,7 +1,9 @@
 package dev.nadirakdag.phoenixfunds.presentation.rest;
 
+import dev.nadirakdag.phoenixfunds.domain.services.TransactionService;
 import dev.nadirakdag.phoenixfunds.presentation.rest.request.DepositRequest;
 import dev.nadirakdag.phoenixfunds.presentation.rest.response.TransactionResponse;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +15,10 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/v1/accounts/{account-uid}/deposit")
 @Slf4j
+@AllArgsConstructor
 public class DepositController {
+
+    private final TransactionService transactionService;
 
     @PostMapping
     public ResponseEntity<TransactionResponse> deposit(@PathVariable("account-uid")UUID accountUid, @RequestBody DepositRequest request){

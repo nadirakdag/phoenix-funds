@@ -1,7 +1,9 @@
 package dev.nadirakdag.phoenixfunds.presentation.rest;
 
+import dev.nadirakdag.phoenixfunds.domain.services.TransactionService;
 import dev.nadirakdag.phoenixfunds.presentation.rest.response.TransactionResponse;
 import dev.nadirakdag.phoenixfunds.presentation.rest.response.TransactionsResponse;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,10 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/v1/accounts/{account-uid}/history")
 @Slf4j
+@AllArgsConstructor
 public class HistoryController {
+
+    private final TransactionService transactionService;
 
     @GetMapping
     public ResponseEntity<TransactionsResponse> getAllHistory(@PathVariable("account-uid")UUID accountUid) {
